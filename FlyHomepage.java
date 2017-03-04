@@ -10,25 +10,19 @@ import org.testng.annotations.Test;
 
 public class FlyHomepage {
 
-		WebDriver driver;
-	public FlyHomepage() {
-		
-		
-		
-	}
+	WebDriver driver;
+
 	@BeforeTest
 	public void Connect(){
-		
+
 		System.setProperty("webdriver.gecko.driver", "C:\\Users\\Follow\\Desktop\\Seleniumtools\\geckodriver.exe");
 		driver = new FirefoxDriver();
-		
 		driver.get("http://fly.com");
 		System.out.println("The title "+ driver.getTitle());
 		String path = driver.findElement(By.xpath(".//*[@id='pageHeader']/div/ul[2]/li[2]/a")).getText();
 		System.out.println(path);
 		Assert.assertEquals("Today's Best deals", "Today's Best deals");
 		driver.manage().window().maximize();
-		
 	}
 	@Test
 	public void FillFields(){
@@ -39,7 +33,7 @@ public class FlyHomepage {
 		driver.findElement(By.id("date-return")).sendKeys("04/05/2017");
 		driver.findElement(By.id("search-btn")).click();
 	}
-	//@AfterTest
+	@AfterTest
 	public void TearDown() throws InterruptedException{
 		driver.wait(20);
 		driver.close();
