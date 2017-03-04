@@ -7,7 +7,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import junit.framework.Assert;
 
-public class StartPage {
+public class homepage {
 	
 	public static WebDriver driver;
 	
